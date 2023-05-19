@@ -13,10 +13,16 @@ class Ship {
 		this.passengersOnBoard = 0;
 		this.passengerList = [];
 		this.startingPort = startingPort;
+		this.journey = [];
 	}
 
 	allAboard() {
-		return new Ship();
+		this.passengersOnBoard = [...this.passengerList];
+		return this.passengersOnBoard;
+	}
+
+	setSail() {
+		return !this.startingPort;
 	}
 }
 

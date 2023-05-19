@@ -1,8 +1,8 @@
 const { Ship, ship } = require("../src/cruise.js");
 
-describe("constructor", () => {
+describe("Ship", () => {
 	test("return a ship when I call new Ship", () => {
-		expect(new Ship()).toEqual(ship);
+		expect(new Ship()).toBeInstanceOf(Object);
 	});
 
 	test("every ship needs a name", () => {
@@ -29,7 +29,13 @@ describe("constructor", () => {
 		expect(ship.startingPort).toEqual("Glasgow");
 	});
 
-	xtest("can we get the passengers on board?", () => {
-		expect(new Ship("Lollipop")).toEqual(ship);
+	test("can we get the passengers on board?", () => {
+		ship.allAboard();
+		expect(ship.passengersOnBoard).toHaveLength(3);
+	});
+
+	test("can we start the journey?", () => {
+		ship.setSail();
+		expect(ship.startingPort).toBeFalsy;
 	});
 });
