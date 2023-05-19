@@ -18,6 +18,6 @@ class Ship {
 	}
 }
 
-const ship = new Ship("Lollipop");
+const ship = new Ship("Lollipop", "Bob", 500, "Glasgow");
 
 module.exports = { Ship, ship };
