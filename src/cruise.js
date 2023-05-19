@@ -6,10 +6,12 @@
 // }
 
 class Ship {
-	constructor(name, captain, passengers, startingPort) {
+	constructor(name, captain, maxPassengers, startingPort) {
 		this.name = name;
 		this.captain = captain;
-		this.passengers = passengers;
+		this.maxPassengers = maxPassengers;
+		this.passengersOnBoard = 0;
+		this.passengerList = [];
 		this.startingPort = startingPort;
 	}
 
@@ -19,5 +21,6 @@ class Ship {
 }
 
 const ship = new Ship("Lollipop", "Bob", 500, "Glasgow");
+ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
 module.exports = { Ship, ship };
