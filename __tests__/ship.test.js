@@ -1,4 +1,4 @@
-const { Ship, ship, Port, portName } = require("../src/cruise.js");
+const { Ship, ship, Port, Itinerary } = require("../src/cruise.js");
 
 describe("Ship", () => {
 	test("return a ship when I call new Ship", () => {
@@ -41,8 +41,14 @@ describe("Ship", () => {
 
 	test("can we dock?", () => {
 		const halifax = new Port("Halifax");
+
 		const ship = new Ship(halifax);
 		ship.dock(halifax);
 		expect(ship.currentPort).toBe(halifax);
+		const newYork = new Port("new York");
+		ship.dock(newYork);
+		expect(ship.currentPort).toBe(newYork);
 	});
+
+	test("where are we going?", () => {});
 });

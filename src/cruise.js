@@ -13,8 +13,9 @@ class Ship {
 		this.passengersOnBoard = 0;
 		this.passengerList = [];
 		this.startingPort = startingPort;
-		this.currentPort = Port;
-		this.journey = [];
+		this.previousPort = null;
+		this.currentPort = null;
+		this.nextPort = null;
 	}
 
 	allAboard() {
@@ -23,6 +24,8 @@ class Ship {
 	}
 
 	setSail() {
+		// this.previousPort = currentPort;
+		// this.currentPort = nextPort;
 		return !this.startingPort;
 	}
 
@@ -36,7 +39,14 @@ class Port {
 		this.portName = name;
 	}
 }
+
+class Itinerary {
+	constructor(...ports) {
+		this.ports = [...ports];
+	}
+}
+
 const ship = new Ship("Lollipop", "Bob", 500, "Glasgow");
 ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
-module.exports = { Ship, ship, Port };
+module.exports = { Ship, ship, Port, Itinerary };
