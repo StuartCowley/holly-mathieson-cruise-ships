@@ -13,7 +13,7 @@ class Ship {
 		this.passengersOnBoard = 0;
 		this.passengerList = [];
 		this.startingPort = startingPort;
-		this.port = String;
+		this.currentPort = Port;
 		this.journey = [];
 	}
 
@@ -27,7 +27,7 @@ class Ship {
 	}
 
 	dock(port) {
-		this.port = port;
+		this.currentPort = port;
 	}
 }
 

@@ -40,16 +40,9 @@ describe("Ship", () => {
 	});
 
 	test("can we dock?", () => {
-		ship.dock("Halifax");
-		expect(ship.port).toEqual("Halifax");
-	});
-});
-
-describe("Port", () => {
-	test("Have we docked?", () => {
-		const port = new Port("Glasgow");
-		expect(new Port()).toBeInstanceOf(Object);
-		expect(port).toHaveProperty("portName");
-		expect(port.portName).toEqual("Glasgow");
+		const halifax = new Port("Halifax");
+		const ship = new Ship(halifax);
+		ship.dock(halifax);
+		expect(ship.currentPort).toBe(halifax);
 	});
 });
