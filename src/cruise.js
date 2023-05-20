@@ -13,6 +13,7 @@ class Ship {
 		this.passengersOnBoard = 0;
 		this.passengerList = [];
 		this.startingPort = startingPort;
+		this.port = String;
 		this.journey = [];
 	}
 
@@ -24,9 +25,18 @@ class Ship {
 	setSail() {
 		return !this.startingPort;
 	}
+
+	dock(port) {
+		this.port = port;
+	}
 }
 
+class Port {
+	constructor(name) {
+		this.portName = name;
+	}
+}
 const ship = new Ship("Lollipop", "Bob", 500, "Glasgow");
 ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
-module.exports = { Ship, ship };
+module.exports = { Ship, ship, Port };

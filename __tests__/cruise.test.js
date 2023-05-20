@@ -1,4 +1,4 @@
-const { Ship, ship } = require("../src/cruise.js");
+const { Ship, ship, Port, portName } = require("../src/cruise.js");
 
 describe("Ship", () => {
 	test("return a ship when I call new Ship", () => {
@@ -37,5 +37,19 @@ describe("Ship", () => {
 	test("can we start the journey?", () => {
 		ship.setSail();
 		expect(ship.startingPort).toBeFalsy;
+	});
+
+	test("can we dock?", () => {
+		ship.dock("Halifax");
+		expect(ship.port).toEqual("Halifax");
+	});
+});
+
+describe("Port", () => {
+	test("Have we docked?", () => {
+		const port = new Port("Glasgow");
+		expect(new Port()).toBeInstanceOf(Object);
+		expect(port).toHaveProperty("portName");
+		expect(port.portName).toEqual("Glasgow");
 	});
 });
