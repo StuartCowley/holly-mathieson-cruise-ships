@@ -49,6 +49,4 @@ describe("Ship", () => {
 		ship.dock(newYork);
 		expect(ship.currentPort).toBe(newYork);
 	});
-
-	test("where are we going?", () => {});
 });
