@@ -24,9 +24,8 @@ class Ship {
 	}
 
 	setSail() {
-		// this.previousPort = currentPort;
-		// this.currentPort = nextPort;
-		return !this.startingPort;
+		!this.startingPort;
+		this.previousPort = this.currentPort;
 	}
 
 	dock(port) {

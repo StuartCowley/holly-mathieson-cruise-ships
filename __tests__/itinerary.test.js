@@ -6,7 +6,7 @@ describe("Itinerary", () => {
 	});
 
 	test("how many stops will we make?", () => {
-		const itinerary = new Itinerary("Halifax", "New York", "Miami");
-		expect(itinerary.ports).toHaveLength(3);
+		const itinerary = new Itinerary("Halifax", "New York");
+		expect(itinerary.ports).toHaveLength(2);
 	});
 });
