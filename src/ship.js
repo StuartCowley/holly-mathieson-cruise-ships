@@ -1,10 +1,3 @@
-// ship {
-// captain:
-// passengers:
-// starting port:
-// function allAboard()
-// }
-
 class Ship {
 	constructor(name, captain, maxPassengers, startingPort) {
 		this.name = name;

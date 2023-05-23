@@ -1,4 +1,4 @@
-const { Ship, ship } = require("../src/cruise.js");
+const { Ship, ship } = require("../src/ship.js");
 
 describe("Ship", () => {
 	it("returns a ship when I call new Ship", () => {
