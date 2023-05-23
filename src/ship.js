@@ -1,14 +1,11 @@
 class Ship {
-	constructor(name, captain, maxPassengers, startingPort) {
-		this.name = name;
-		this.captain = captain;
+	constructor(maxPassengers, itinerary) {
 		this.maxPassengers = maxPassengers;
 		this.passengersOnBoard = 0;
 		this.passengerList = [];
-		this.startingPort = startingPort;
+		this.itinerary = itinerary;
 		this.previousPort = null;
-		this.currentPort = null;
-		this.nextPort = null;
+		this.currentPort = this.itinerary[0];
 	}
 
 	allAboard() {
@@ -17,16 +14,16 @@ class Ship {
 	}
 
 	setSail() {
-		!this.startingPort;
-		this.previousPort = this.currentPort;
+		this.previousPort = this.itinerary[0];
+		this.currentPort = null;
 	}
 
-	dock(port) {
-		this.currentPort = port;
+	dock() {
+		this.currentPort = this.itinerary[i];
 	}
 }
 
-const ship = new Ship("Lollipop", "Bob", 500, "Glasgow");
+const ship = new Ship(500, ["Glasgow", "Halifax"]);
 ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
 module.exports = { Ship, ship };
