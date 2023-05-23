@@ -1,4 +1,4 @@
-const { Ship, ship, Port, port } = require("../src/cruise.js");
+const { Port } = require("../src/port.js");
 
 describe("Port", () => {
 	test("Have we docked?", () => {

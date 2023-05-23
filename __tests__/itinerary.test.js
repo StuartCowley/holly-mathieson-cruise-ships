@@ -1,4 +1,4 @@
-const { Ship, ship, Port, Itinerary } = require("../src/cruise.js");
+const { Itinerary } = require("../src/itinerary.js");
 
 describe("Itinerary", () => {
 	test("load a new itinerary", () => {

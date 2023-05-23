@@ -33,19 +33,7 @@ class Ship {
 	}
 }
 
-class Port {
-	constructor(name) {
-		this.portName = name;
-	}
-}
-
-class Itinerary {
-	constructor(...ports) {
-		this.ports = [...ports];
-	}
-}
-
 const ship = new Ship("Lollipop", "Bob", 500, "Glasgow");
 ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
-module.exports = { Ship, ship, Port, Itinerary };
+module.exports = { Ship, ship };
