@@ -36,4 +36,6 @@ describe("Ship", () => {
 		expect(ship.currentPort).toEqual("Halifax");
 		expect(ship.previousPort).toEqual("Glasgow");
 	});
+
+	xit("can see current port's ships", () => {});
 });

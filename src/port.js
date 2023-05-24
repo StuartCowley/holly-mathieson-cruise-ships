@@ -4,9 +4,14 @@ class Port {
 		this.ships = [];
 	}
 
-	addShip(ship) {}
+	addShip(ship) {
+		return this.ships.push(ship);
+	}
 
-	removeShip(ship) {}
+	removeShip(ship) {
+		const i = this.ships.indexOf(ship);
+		this.ships.splice(i, 1);
+	}
 }
 
 module.exports = { Port };
