@@ -1,8 +1,9 @@
 const { Ship } = require("../src/ship.js");
-const ship = new Ship(500, ["Glasgow", "Halifax"]);
-ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
 describe("Ship", () => {
+	const ship = new Ship(500, ["Glasgow", "Halifax"]);
+	ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
+
 	it("returns a ship when I call new Ship", () => {
 		expect(new Ship(500, ["Glasgow", "Halifax"])).toBeInstanceOf(Object);
 	});

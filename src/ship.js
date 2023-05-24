@@ -15,11 +15,13 @@ class Ship {
 
 	setSail() {
 		this.previousPort = this.itinerary[0];
+		this.currentPort.removeShip(this);
 		this.currentPort = null;
 	}
 
 	dock() {
 		this.currentPort = this.itinerary[1];
+		this.currentPort.addShip(this);
 	}
 }
 
