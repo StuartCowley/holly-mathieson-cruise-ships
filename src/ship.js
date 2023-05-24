@@ -5,7 +5,7 @@ class Ship {
 		this.passengerList = [];
 		this.itinerary = itinerary;
 		this.previousPort = null;
-		this.currentPort = this.itinerary[0];
+		this.currentPort = itinerary[0];
 	}
 
 	allAboard() {
@@ -19,11 +19,8 @@ class Ship {
 	}
 
 	dock() {
-		this.currentPort = this.itinerary[i];
+		this.currentPort = this.itinerary[1];
 	}
 }
 
-const ship = new Ship(500, ["Glasgow", "Halifax"]);
-ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
-
-module.exports = { Ship, ship };
+module.exports = { Ship };
