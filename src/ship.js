@@ -28,6 +28,7 @@ class Ship {
 		const itinerary = this.itinerary;
 		const previousPortIndex = itinerary.indexOf(this.previousPort);
 		this.currentPort = itinerary[previousPortIndex + 1];
+		console.log(this.currentPort.ships);
 		console.log(`Ooh, isn't the weather lovely here in {$this.currentPort}!`);
 	}
 }
