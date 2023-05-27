@@ -14,14 +14,21 @@ class Ship {
 	}
 
 	setSail() {
-		this.previousPort = this.itinerary[0];
-		this.currentPort.removeShip(this);
-		this.currentPort = null;
+		const itinerary = this.itinerary;
+		const portIndex = this.itinerary.indexOf(this.currentPort);
+		if (portIndex === itinerary.length - 1) {
+			console.log("Thanks for traveling!");
+		} else {
+			this.previousPort = this.currentPort;
+			this.currentPort = null;
+		}
 	}
 
 	dock() {
-		this.currentPort = this.itinerary[1];
-		this.currentPort.addShip(this);
+		const itinerary = this.itinerary;
+		const previousPortIndex = itinerary.indexOf(this.previousPort);
+		this.currentPort = itinerary[previousPortIndex + 1];
+		console.log(`Ooh, isn't the weather lovely here in {$this.currentPort}!`);
 	}
 }
 

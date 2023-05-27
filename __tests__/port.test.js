@@ -7,8 +7,8 @@ describe("Port", () => {
 
 	it("can dock", () => {
 		expect(new Port()).toBeInstanceOf(Object);
-		expect(port).toHaveProperty("portName");
-		expect(port.portName).toContain("Glasgow");
+		expect(port).toHaveProperty("port");
+		expect(port.port).toContain("Glasgow");
 	});
 
 	it("can keep track of docked ships", () => {

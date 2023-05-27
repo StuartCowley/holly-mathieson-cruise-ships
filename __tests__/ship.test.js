@@ -32,10 +32,11 @@ describe("Ship", () => {
 	});
 
 	it("can dock", () => {
+		const ship = new Ship(200, ["Aberdeen", "Dundee"]);
 		ship.setSail();
 		ship.dock();
-		expect(ship.currentPort).toEqual("Halifax");
-		expect(ship.previousPort).toEqual("Glasgow");
+		expect(ship.currentPort).toEqual("Dundee");
+		expect(ship.previousPort).toEqual("Aberdeen");
 	});
 
 	xit("can see current port's ships", () => {});

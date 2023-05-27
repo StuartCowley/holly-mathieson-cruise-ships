@@ -1,6 +1,6 @@
 class Port {
-	constructor(name) {
-		this.portName = name;
+	constructor(port) {
+		this.port = port;
 		this.ships = [];
 	}
 
