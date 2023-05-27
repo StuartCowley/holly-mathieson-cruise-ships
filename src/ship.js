@@ -5,7 +5,7 @@ class Ship {
 		this.passengerList = [];
 		this.itinerary = itinerary;
 		this.previousPort = null;
-		this.currentPort = itinerary[0];
+		this.currentPort = this.itinerary.ports[0];
 	}
 
 	allAboard() {
@@ -15,10 +15,11 @@ class Ship {
 
 	setSail() {
 		const itinerary = this.itinerary;
-		const portIndex = this.itinerary.indexOf(this.currentPort);
-		if (portIndex === itinerary.length - 1) {
+		const portIndex = itinerary.ports.indexOf(this.currentPort);
+		if (portIndex === itinerary.ports.length - 1) {
 			console.log("Thanks for traveling!");
 		} else {
+			this.currentPort.removeShip(this);
 			this.previousPort = this.currentPort;
 			this.currentPort = null;
 		}
@@ -26,9 +27,9 @@ class Ship {
 
 	dock() {
 		const itinerary = this.itinerary;
-		const previousPortIndex = itinerary.indexOf(this.previousPort);
-		this.currentPort = itinerary[previousPortIndex + 1];
-		console.log(this.currentPort.ships);
+		const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
+		this.currentPort = itinerary.ports[previousPortIndex + 1];
+		this.currentPort.addShip(this);
 		console.log(`Ooh, isn't the weather lovely here in {$this.currentPort}!`);
 	}
 }

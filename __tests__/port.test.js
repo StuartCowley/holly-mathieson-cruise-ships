@@ -1,14 +1,16 @@
+const { Ship } = require("../src/ship.js");
 const { Port } = require("../src/port.js");
+const { Itinerary } = require("../src/itinerary.js");
 
 describe("Port", () => {
-	const port = new Port("Glasgow", "Halifax");
+	const port = new Port("Glasgow");
 	const ship1 = jest.fn();
 	const ship2 = jest.fn();
 
 	it("can dock", () => {
 		expect(new Port()).toBeInstanceOf(Object);
-		expect(port).toHaveProperty("port");
-		expect(port.port).toContain("Glasgow");
+		expect(port).toHaveProperty("name");
+		expect(port.name).toContain("Glasgow");
 	});
 
 	it("can keep track of docked ships", () => {
