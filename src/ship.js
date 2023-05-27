@@ -5,11 +5,12 @@ class Ship {
 		this.passengerList = [];
 		this.itinerary = itinerary;
 		this.previousPort = null;
-		this.currentPort = itinerary.ports[0];
+		this.currentPort = null;
 	}
 
 	allAboard() {
 		this.passengersOnBoard = [...this.passengerList];
+		this.currentPort = this.itinerary.ports[0];
 		return this.passengersOnBoard;
 	}
 

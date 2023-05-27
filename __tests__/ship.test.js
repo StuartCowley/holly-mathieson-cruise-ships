@@ -8,7 +8,7 @@ describe("Ship constructor", () => {
 	ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
 
 	it("returns a ship when I call new Ship", () => {
-		expect(ship).toBeInstanceOf(Object);
+		expect(new Ship()).toBeInstanceOf(Object);
 	});
 
 	it("how many passengers are on board?", () => {
@@ -30,23 +30,21 @@ describe("Ship constructor", () => {
 
 	it("can start the journey", () => {
 		ship.setSail();
-		expect(ship.previousPort).toEqual("Glasgow");
+		expect(ship.previousPort).toEqual(aberdeen);
 		expect(ship.currentPort).toBe(null);
 	});
 
 	it("can dock", () => {
-		const ship = new Ship(200, ["Aberdeen", "Dundee"]);
 		ship.setSail();
 		ship.dock();
-		expect(ship.currentPort).toEqual("Dundee");
-		expect(ship.previousPort).toEqual("Aberdeen");
+		expect(ship.currentPort).toEqual(dundee);
+		expect(ship.previousPort).toEqual(aberdeen);
 	});
 
 	it("checks a ship gets added to port on instantiation", () => {
 		ship.setSail();
 		ship.dock();
-		expect(ship.currentPort).toBe(dundee);
 		expect(dundee.ships).toContain(ship);
-		expect(dover.addShip()).toHaveBeenCalledWith(ship);
+		expect(dundee.addShip()).toHaveBeenCalledWith(ship);
 	});
 });
