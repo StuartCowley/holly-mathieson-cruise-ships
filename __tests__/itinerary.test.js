@@ -3,10 +3,14 @@ const { Itinerary } = require("../src/itinerary.js");
 describe("Itinerary", () => {
 	const glasgow = { name: "Glasgow" };
 	const halifax = { name: "Halifax" };
-	const itinerary = new Itinerary([glasgow, halifax]);
+	let itinerary;
+
+	beforeEach(() => {
+		itinerary = new Itinerary([glasgow, halifax]);
+	});
 
 	it("load a new itinerary", () => {
-		expect(new Itinerary()).toBeInstanceOf(Object);
+		expect(itinerary).toBeInstanceOf(Object);
 	});
 
 	it("has ports in travel order", () => {

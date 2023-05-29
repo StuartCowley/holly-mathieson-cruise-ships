@@ -6,7 +6,7 @@ describe("Port", () => {
 	const ship2 = jest.fn();
 
 	it("can dock", () => {
-		expect(new Port()).toBeInstanceOf(Object);
+		expect(port).toBeInstanceOf(Object);
 		expect(port).toHaveProperty("name");
 		expect(port.name).toContain("Glasgow");
 	});
