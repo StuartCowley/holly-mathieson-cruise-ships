@@ -1,50 +1,46 @@
 const { Ship } = require("../src/ship.js");
 
 describe("Ship constructor", () => {
-	const aberdeen = { name: "Aberdeen", ships: [] };
-	const dundee = { name: "Dundee", ships: [] };
-	const itinerary = { ports: [aberdeen, dundee] };
-	const ship = new Ship(500, itinerary);
-	ship.passengerList = ["Adam Ant", "Briony Button", "Catriona Crisp"];
+	let aberdeen;
+	let dundee;
+	let itinerary;
+	let ship;
 
-	it("returns a ship when I call new Ship", () => {
-		expect(new Ship()).toBeInstanceOf(Object);
+	beforeEach(() => {
+		aberdeen = {
+			name: "Aberdeen",
+			ships: [],
+			removeShip: jest.fn(),
+			addShip: jest.fn(),
+		};
+		dundee = {
+			name: "Dundee",
+			ships: [],
+			removeShip: jest.fn(),
+			addShip: jest.fn(),
+		};
+		itinerary = { ports: [aberdeen, dundee] };
+		ship = new Ship(itinerary);
 	});
-
-	it("how many passengers are on board?", () => {
-		expect(ship.passengersOnBoard).toEqual(0);
-	});
-
-	it("how many passengers can we take?", () => {
-		expect(ship.maxPassengers).toEqual(500);
-	});
-
-	it("who are we taking?", () => {
-		expect(ship.passengerList).toHaveLength(3);
-	});
-
-	it("can we get the passengers on board?", () => {
-		ship.allAboard();
-		expect(ship.passengersOnBoard).toHaveLength(3);
+	it("can make new ships", () => {
+		expect(ship).toBeInstanceOf(Object);
+		expect(ship.previousPort).toBeFalsy();
+		expect(ship.currentPort).toEqual(aberdeen);
+		expect(aberdeen.addShip).toHaveBeenCalledWith(ship);
 	});
 
 	it("can start the journey", () => {
 		ship.setSail();
-		expect(ship.previousPort).toEqual(aberdeen);
+		expect(ship.previousPort).toEqual(itinerary.ports[0]);
 		expect(ship.currentPort).toBe(null);
+		expect(aberdeen.removeShip).toHaveBeenCalledWith(ship);
 	});
 
 	it("can dock", () => {
 		ship.setSail();
 		ship.dock();
-		expect(ship.currentPort).toEqual(dundee);
-		expect(ship.previousPort).toEqual(aberdeen);
-	});
-
-	it("checks a ship gets added to port on instantiation", () => {
-		ship.setSail();
-		ship.dock();
-		expect(dundee.ships).toContain(ship);
-		expect(dundee.addShip()).toHaveBeenCalledWith(ship);
+		expect(ship.currentPort).toEqual(itinerary.ports[1]);
+		expect(ship.previousPort).toEqual(itinerary.ports[0]);
+		expect(dundee.addShip).toHaveBeenCalledWith(ship);
 	});
 });
