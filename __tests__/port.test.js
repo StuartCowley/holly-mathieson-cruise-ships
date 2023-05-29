@@ -1,7 +1,7 @@
 const { Port } = require("../src/port.js");
 
 describe("Port", () => {
-	const port = new Port("Glasgow");
+	let port = new Port("Glasgow");
 	const ship1 = jest.fn();
 	const ship2 = jest.fn();
 

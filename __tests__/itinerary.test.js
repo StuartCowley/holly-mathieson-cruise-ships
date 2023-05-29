@@ -1,8 +1,8 @@
 const { Itinerary } = require("../src/itinerary.js");
 
 describe("Itinerary", () => {
-	const glasgow = { name: "Glasgow" };
-	const halifax = { name: "Halifax" };
+	const glasgow = jest.fn();
+	const halifax = jest.fn();
 	let itinerary;
 
 	beforeEach(() => {
