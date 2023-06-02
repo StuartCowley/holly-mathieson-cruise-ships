@@ -7,6 +7,10 @@ describe("Ship constructor", () => {
 	let ship;
 
 	beforeEach(() => {
+		const jon = "Jon";
+		const holly = "Holly";
+		const matilda = "Matilda";
+		let passengerList = [jon, holly, matilda];
 		aberdeen = {
 			name: "Aberdeen",
 			ships: [],
@@ -20,13 +24,14 @@ describe("Ship constructor", () => {
 			addShip: jest.fn(),
 		};
 		itinerary = { ports: [aberdeen, dundee] };
-		ship = new Ship(itinerary);
+		ship = new Ship(itinerary, passengerList);
 	});
 	it("can make new ships", () => {
 		expect(ship).toBeInstanceOf(Object);
 		expect(ship.previousPort).toBeFalsy();
 		expect(ship.currentPort).toEqual(aberdeen);
 		expect(aberdeen.addShip).toHaveBeenCalledWith(ship);
+		expect(ship.passengersOnBoard.length).toEqual(0);
 	});
 
 	it("can start the journey", () => {
@@ -34,6 +39,7 @@ describe("Ship constructor", () => {
 		expect(ship.previousPort).toEqual(itinerary.ports[0]);
 		expect(ship.currentPort).toBe(null);
 		expect(aberdeen.removeShip).toHaveBeenCalledWith(ship);
+		expect(ship.passengersOnBoard.length).toEqual(3);
 	});
 
 	it("can dock", () => {
@@ -42,5 +48,6 @@ describe("Ship constructor", () => {
 		expect(ship.currentPort).toEqual(itinerary.ports[1]);
 		expect(ship.previousPort).toEqual(itinerary.ports[0]);
 		expect(dundee.addShip).toHaveBeenCalledWith(ship);
+		expect(ship.passengersOnBoard.length).toEqual(0);
 	});
 });
